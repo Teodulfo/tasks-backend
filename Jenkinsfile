@@ -1,5 +1,5 @@
 pipeline {
-    agent { label '192.168.122.20' }  
+    agent any 
     stages {
         stage ('Just Test'){
             steps {
