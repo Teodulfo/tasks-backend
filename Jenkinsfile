@@ -3,10 +3,10 @@ pipeline {
     stages {
         stage ('Build Backend'){
             steps {
-                sh 'catalina.sh stop'
+                sh '/opt/tomcat/bin/catalina.sh stop'
                 sh 'mvn clean package'
                 sh 'cp target/tasks-backend.war /opt/tomcat/webapps/.'
-                sh 'catalina.sh start'
+                sh '/opt/tomcat/bin/catalina.sh start'
             }
         }           
 
