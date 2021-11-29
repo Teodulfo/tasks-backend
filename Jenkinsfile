@@ -1,11 +1,10 @@
 pipeline {
-    agent {
+    agent none
         any
-        stages ('Just Test') {
+        stage('Just Test') {
             steps {
-                sh 'echo deu certo'
+                  sh 'echo deu certo'
             }
 
         }
-    }
 }
