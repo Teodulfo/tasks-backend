@@ -10,11 +10,12 @@ pipeline {
         }
         stage ('Build Frontend'){
             steps {
-                dir('fronted')
-                git 'git@github.com:Teodulfo/tasks-frontend.git'             
-                sh 'mvn clean package'
-                sh 'cp target/tasks.war /opt/tomcat/webapps/.'
-                sh '/opt/tomcat/bin/catalina.sh start'
+                    dir('frontend') {
+                        git 'git@github.com:Teodulfo/tasks-frontend.git'             
+                        sh 'mvn clean package'
+                        sh 'cp target/tasks.war /opt/tomcat/webapps/.'
+                    }
+                sh '/opt/tomcat/bin/catalina.sh start'              
             }
         }           
 
