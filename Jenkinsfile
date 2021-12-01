@@ -30,7 +30,7 @@ pipeline {
                 sh 'scp target/tasks-backend.war  root@192.168.122.123:/opt/tomcat/webapps/.'
                 sh 'ssh root@192.168.122.123 "/opt/tomcat/bin/catalina.sh start"' 
                 sleep 10 
-                sh 'curl http://192.168.122.20:8080/tasks/ -s -f -o /dev/null'
+                sh 'curl http://192.168.122.123:8080/tasks/ -s -f -o /dev/null'
             }
         }           
 
