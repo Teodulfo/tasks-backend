@@ -26,8 +26,8 @@ pipeline {
          stage ('Deploy to homologacao'){
             steps {
                 sh 'ssh root@192.168.122.123 "/opt/tomcat/bin/catalina.sh stop"' 
-                sh 'scp target/tasks.war  root@192.168.122.123:/opt/tomcat/webapps/.'
-                sh 'scp target/tasks-backend.war  root@192.168.122.123:/opt/tomcat/webapps/.'
+                sh 'scp /home/teo/workspace/ProjetoPipeLine/frontend/target/tasks.war  root@192.168.122.123:/opt/tomcat/webapps/.'
+                sh 'scp /home/teo/workspace/ProjetoPipeLine/target/tasks-backend.war  root@192.168.122.123:/opt/tomcat/webapps/.'
                 sh 'ssh root@192.168.122.123 "/opt/tomcat/bin/catalina.sh start"' 
                 sleep 10 
                 sh 'curl http://192.168.122.123:8080/tasks/ -s -f -o /dev/null'
