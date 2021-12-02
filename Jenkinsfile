@@ -24,9 +24,9 @@ pipeline {
                 sh 'curl http://localhost:8080/tasks/ -s -f -o /dev/null'
             }
         }           
-         stage ('Deploy to homologacao'){
+         stage ('Deploy to Producao'){ 
             steps {
-                sh 'ssh root@192.168.122.123 "/opt/tomcat/bin/catalina.sh stop"' 
+                sh 'ssh root@192.168.122.123 "/opt/tomcat/bin/catalina.sh stop"'
                 sh 'scp /home/teo/workspace/ProjetoPipeLine/frontend/target/tasks.war  root@192.168.122.123:/opt/tomcat/webapps/.'
                 sh 'scp /home/teo/workspace/ProjetoPipeLine/target/tasks-backend.war  root@192.168.122.123:/opt/tomcat/webapps/.'
                 sh 'ssh root@192.168.122.123 "/opt/tomcat/bin/catalina.sh start"' 
